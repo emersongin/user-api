@@ -1,11 +1,54 @@
-const User = require('../models/User');
+const userRepository = require('../repositories/userRepository');
 
-module.exports = {
-    async store(req, res) {
-        const { name } = req.body;
+async function getId(req, res) {
+    const { id } = req.params || {};
 
-        const user = await User.create({ name });
+    const user = await userRepository.findAll({ id });
 
-        return res.json(user);
+    if (Array.isArray(user) && newUser.name !== 'SequelizeDatabaseError') {
+        if (user.length) {
+            return res.status(200).json(user);
+        }
+        return res.status(404).json({ description: "User not found." });
+    } else {
+        return res.status(400).json({ db: user });
     }
+
 };
+
+async function create(req, res) {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).json({ description: "username or password not found!" });
+    }
+
+    const newUser = await userRepository.create({ username, password });
+
+    if (newUser && newUser.name !== 'SequelizeDatabaseError') {
+        return res.status(201).json(newUser);
+    } else {
+        return res.status(400).json({ db: newUser });
+    }
+
+}
+
+async function updateId(req, res) {
+    const { id } = req.params || {};
+    const { username, password } = req.body;
+
+    if (!username || !password || !id) {
+        return res.status(400).json({ description: "username, password or id not found!" });
+    }
+
+    const userUpdated = await userRepository.update({ id, username, password });
+
+    if (userUpdated && userUpdated.name !== 'SequelizeDatabaseError') {
+        return res.status(201).json(userUpdated);
+    } else {
+        return res.status(400).json({ db: userUpdated });
+    }
+
+}
+
+module.exports = { getId, create, updateId };

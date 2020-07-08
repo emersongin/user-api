@@ -1,11 +1,11 @@
 {
   "name": "user-service",
   "version": "1.0.0",
-  "description": "API for manager user data.",
+  "description": "API manager users data.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/app.js"
   },
   "author": "Emerson Andrey",
   "license": "MIT",

@@ -1,3 +1,12 @@
+/**
+ * 
+ * Dados de acesso para usuários apenas informações de acesso.
+ * 
+ * username
+ * password
+ * 
+ */
+
 'use strict';
 
 module.exports = {
@@ -9,7 +18,11 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-      name: {
+      username: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      password: {
         type: Sequelize.STRING,
         allowNull: false
       },
