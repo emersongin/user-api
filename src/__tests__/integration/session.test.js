@@ -1,11 +1,15 @@
-describe('authentication', () => {
-    it('sum', () => {
-        const numberOne = 1;
-        const numberTwo = 2;
+const UserRepository = require('../../repositories/userRepository');
 
-        const sum = numberOne + numberTwo;
+describe('repository', () => {
+    it('get user id', async () => {
 
-        expect(sum).toBe(3);
+        const test = await UserRepository.create({
+            username: "Emerson", 
+            password: "dragon123", 
+            email: "emerson@and"
+        });
+        console.log(process.env);
+        expect(test.email).toBe("emerson@and");
     });
 
 });
