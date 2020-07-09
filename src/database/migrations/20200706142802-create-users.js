@@ -1,12 +1,3 @@
-/**
- * 
- * Dados de acesso para usuários apenas informações de acesso.
- * 
- * username
- * password
- * 
- */
-
 'use strict';
 
 module.exports = {
