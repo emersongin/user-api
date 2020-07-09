@@ -4,9 +4,9 @@ describe('repository', () => {
     it('get user id', async () => {
 
         const test = await UserRepository.create({
-            username: "Emerson", 
-            password: "dragon123", 
-            email: "emerson@and"
+            username: "Emerson",
+            password: "Dragon123",
+            email: "emersonandrey_7@hotmail.com"
         });
         console.log(process.env);
         expect(test.email).toBe("emerson@and");

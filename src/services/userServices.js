@@ -37,13 +37,13 @@ async function getData(req, res) {
 };
 
 async function create(req, res) {
-    const { username, password } = req.body;
+    const { username, password, email } = req.body;
 
     if (!username || !password) {
         return res.status(400).json({ description: "username or password not found!" });
     }
 
-    const newUser = await userRepository.create({ username, password });
+    const newUser = await userRepository.create({ username, password, email });
 
     if (newUser && newUser.name !== 'SequelizeDatabaseError') {
         return res.status(201).json(newUser);
