@@ -4,8 +4,9 @@
   "description": "API manager users data.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/app.js"
+    "test": "NODE_ENV=test jest",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js --ignore __tests__"
   },
   "author": "Emerson Andrey",
   "license": "MIT",
@@ -21,6 +22,7 @@
     "sequelize": "^6.3.0"
   },
   "devDependencies": {
+    "jest": "^26.1.0",
     "sequelize-cli": "^6.2.0"
   }
 }
